@@ -35,7 +35,8 @@ class QubitBasic:
 
 class Qubit(QubitBasic):
     '''
-    Creates a representation of a single qubit.
+    Creates a representation of a single qubit
+    and provides internal methods the perform gate operations.
 
     @inputs
     - `alpha` - <complex>
@@ -77,28 +78,28 @@ class Qubit(QubitBasic):
 
     def x(self) -> Qubit:
         '''
-        The Pauli-X gate swaps the bases |0⟩ and |1⟩.
+        Pauli-X gate swaps the bases |0⟩ and |1⟩.
         '''
         self = Qubit(alpha=self.beta, beta=self.alpha);
         return self;
 
     def y(self):
         '''
-        The Pauli-Y rotates the phases of |0⟩ and |1⟩ by 90° and –90° respectively and then swaps the bases.
+        Pauli-Y rotates the phases of |0⟩ and |1⟩ by 90° and –90° respectively and then swaps the bases.
         '''
         self = Qubit(alpha=-1j*self.beta, beta=1j*self.alpha);
         return self;
 
     def z(self):
         '''
-        The Pauli-Z gate switches the sign of |1⟩.
+        Pauli-Z gate switches the sign of |1⟩.
         '''
         self = Qubit(alpha=self.alpha, beta=-self.beta);
         return self;
 
     def h(self) -> Qubit:
         '''
-        The Walsh-Hadamard gate transforms basis states into equidistributed superpositions.
+        Hadamard transforms basis states into equidistributed superpositions.
         '''
         c = 1/sqrt(2);
         self = Qubit(
