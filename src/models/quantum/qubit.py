@@ -83,14 +83,14 @@ class Qubit(QubitBasic):
         self = Qubit(alpha=self.beta, beta=self.alpha);
         return self;
 
-    def y(self):
+    def y(self) -> Qubit:
         '''
         Pauli-Y rotates the phases of |0⟩ and |1⟩ by 90° and –90° respectively and then swaps the bases.
         '''
         self = Qubit(alpha=-1j*self.beta, beta=1j*self.alpha);
         return self;
 
-    def z(self):
+    def z(self) -> Qubit:
         '''
         Pauli-Z gate switches the sign of |1⟩.
         '''
